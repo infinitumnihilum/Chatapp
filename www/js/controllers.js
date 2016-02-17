@@ -3,6 +3,7 @@ angular.module('chat.controllers', [])
 .controller('DashCtrl', function($scope) {
 $scope.launch = function(url) {
     window.open(url, "_system", "location=yes");
+    return false;
 }
 
 
@@ -100,7 +101,7 @@ $scope.launch = function(url) {
 
   $scope.sendMessage = function(msg){
     Chat.sendMessage(msg);
-    $scope.data.message = "";
+    $scope.data.username.message = "";
   };
 
 })
