@@ -1,12 +1,10 @@
 angular.module('chat.controllers', [])
 
-.controller('DashCtrl', function($scope) {
-$scope.launch = function(url) {
-    $window.open(url, "_system", "location=yes");
-    return false;
-}
-
-
+.controller('DashCtrl', function($scope,$window) {
+  $scope.launch = function(url) {
+      $window.open(url, "_system", "location=yes");
+      return false;
+  }
 })
 
 .controller('MysqlCtrl', function($scope) {})
@@ -102,7 +100,6 @@ $scope.launch = function(url) {
 
   $scope.sendMessage = function(msg){
     var derpStatus = derpService.isDerping;
-    console.log("derping status: "+derpStatus)
     if (derpService.isDerping()==true){
       msg="derping";
       Chat.sendMessage(msg);
