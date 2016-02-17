@@ -6,15 +6,17 @@
 
     <span ng-repeat="message in messages">
       <span ng-show="!message.notification">
+       
         <p class="username" ng-show="messageIsMine(message.username)">{{message.username}}</p>
         <p class="username" ng-show="!messageIsMine(message.username)">{{message.username}}</p>
+
         <div ng-class='getBubbleClass(message.username)'>
           <p ng-bind="message.message"></p>
         </div>
         <div class="clear"></div>
       </span>
       <span ng-show="message.notification">
-        <p class="notification" ng-bind="message.message"></p>
+        <p align="center"><class="notification" ng-bind="message.message"></p>
       </span>
     </span>
 
