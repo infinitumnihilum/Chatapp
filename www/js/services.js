@@ -1,7 +1,5 @@
 angular.module('chat.services', [])
 
-
-
 .factory('Socket', function(socketFactory){
   var myIoSocket = io.connect('http://ec2-54-174-1-185.compute-1.amazonaws.com:3000');
   mySocket = socketFactory({
@@ -31,6 +29,19 @@ angular.module('chat.services', [])
         usernames.numUsers = data.numUsers;
       }
   };
+})
+
+.factory('derpService',function(){
+    var derping=false;
+    return{
+      isDerping: function(){
+        return derping;
+      },
+      setDerping: function(bool){
+        derping=bool;
+        console.log('derping flipped');
+      }
+    }
 })
 
 .factory('Chat', function($ionicScrollDelegate, Socket, Users){
