@@ -6,7 +6,10 @@ angular.module('chat.controllers', [])
 
 .controller('OtherCtrl', function($scope) {})
 
-.controller('RedditCtrl', function($scope){})
+.controller('RedditCtrl', function($scope, $http){
+  
+
+})
 
 
 .controller('ChatCtrl', function($scope, $stateParams, $ionicPopup, $timeout, Socket, Chat) {
