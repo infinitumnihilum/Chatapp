@@ -121,7 +121,7 @@ angular.module('chat.services', [])
     sendMessage: function(msg){
       messages.push({
         username: username,
-        message: msg 
+        message: msg
       });
       scrollBottom();
       Socket.emit('new message', msg);
@@ -131,5 +131,3 @@ angular.module('chat.services', [])
     }
   };
 });
-Status API Training Shop Blog About Pricing
-© 2016 GitHub, Inc. Terms Privacy Security Contact Help
