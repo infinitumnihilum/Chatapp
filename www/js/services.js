@@ -121,7 +121,7 @@ angular.module('chat.services', [])
     sendMessage: function(msg){
       messages.push({
         username: username,
-        message: msg
+        message: username+ ' : '+msg
       });
       scrollBottom();
       Socket.emit('new message', msg);

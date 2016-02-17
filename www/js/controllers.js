@@ -10,7 +10,12 @@ $scope.launch = function(url) {
 
 .controller('MysqlCtrl', function($scope) {})
 
-.controller('OtherCtrl', function($scope) {})
+.controller('OtherCtrl', function($scope) {
+   $scope.derpEnablerChange = function() {
+      console.log('Derp Enabler Change', $scope.derpEnabler.checked);
+    };
+    $scope.derpEnabler = { checked: true };
+})
 
 .controller('RedditCtrl', function($scope, $http){
   
