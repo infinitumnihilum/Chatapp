@@ -39,7 +39,7 @@ angular.module('chat.services', [])
       },
       setDerping: function(bool){
         derping=bool;
-        console.log('derping flipped');
+        console.log('derping bool set to'+bool);
       }
     }
 })

@@ -11,11 +11,12 @@ $scope.launch = function(url) {
 
 .controller('MysqlCtrl', function($scope) {})
 
-.controller('OtherCtrl', function($scope) {
+.controller('OtherCtrl', function($scope,derpService) {
    $scope.derpEnablerChange = function() {
       console.log('Derp Enabler Change', $scope.derpEnabler.checked);
+      derpService.setDerping($scope.derpEnabler.checked);
     };
-    $scope.derpEnabler = { checked: true };
+    $scope.derpEnabler = { checked: false };
 })
 
 .controller('RedditCtrl', function($scope, $http){
@@ -24,7 +25,7 @@ $scope.launch = function(url) {
 })
 
 
-.controller('ChatCtrl', function($scope, $stateParams, $ionicPopup, $timeout, Socket, Chat) {
+.controller('ChatCtrl', function($scope, $stateParams, $ionicPopup, $timeout, Socket, Chat,derpService) {
 
   $scope.data = {};
   $scope.data.message = "";
@@ -100,8 +101,18 @@ $scope.launch = function(url) {
   };
 
   $scope.sendMessage = function(msg){
-    Chat.sendMessage(msg);
-    $scope.data.message = "";
+    var derpStatus = derpService.isDerping;
+    console.log("derping status: "+derpStatus)
+    if (derpService.isDerping()==true){
+      msg="derping";
+      Chat.sendMessage(msg);
+      $scope.data.message = "";
+    }
+    else{
+      Chat.sendMessage(msg);
+      $scope.data.message = "";
+    }
+    
   };
 
 })
