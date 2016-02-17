@@ -101,14 +101,19 @@ angular.module('chat.controllers', [])
   $scope.sendMessage = function(msg){
     var derpStatus = derpService.isDerping;
     if (derpService.isDerping()==true){
-      msg="derping";
-      Chat.sendMessage(msg);
-      $scope.data.message = "";
+      var derpWords = ["herp","derp","herpa","derpa","derping","herp-derp","herpatitus","derpatrator","derparrhea","HerpeBirthday!"];
+      var msgWords = msg.split(" ");
+      msg="";
+      for(var x=0;x<msgWords.length;x++){
+          var ran = Math.floor(Math.random()*9);
+          console.log("random element index: "+ran);
+          var wordToAdd = derpWords[ran];
+          msg+=wordToAdd+" ";
+      }
     }
-    else{
-      Chat.sendMessage(msg);
-      $scope.data.message = "";
-    }
+
+    Chat.sendMessage(msg);
+    $scope.data.message = "";
     
   };
 
