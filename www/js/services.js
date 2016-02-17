@@ -1,7 +1,6 @@
 angular.module('chat.services', [])
 
 
-//angular.module('chat.services', [])
 
 .factory('Socket', function(socketFactory){
   var myIoSocket = io.connect('http://ec2-54-174-1-185.compute-1.amazonaws.com:3000');
@@ -121,7 +120,7 @@ angular.module('chat.services', [])
     sendMessage: function(msg){
       messages.push({
         username: username,
-        message: msg
+        message:  msg
       });
       scrollBottom();
       Socket.emit('new message', msg);

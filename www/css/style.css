@@ -28,7 +28,7 @@ body {
 .messages p {
 	border-radius:.75rem;
 	background:#e6e5eb;
-	color:#383641;
+	color:#221d1d;
 	padding:.6875rem;
 	margin:0;
 	font-size:.875rem;
@@ -51,4 +51,5 @@ body {
   padding-right: 15px;
   text-align: right;
 }
+
 
