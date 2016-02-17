@@ -1,4 +1,4 @@
-<ion-view view-title="chats">
+<ion-view view-title="Chat">
 
   <ion-content class="padding">
     
@@ -27,7 +27,7 @@
               <input id="msg-input" ng-change="updateTyping()" ng-model="data.message" class="input-message" type="text" placeholder="Message">
           </label>
           <div class="footer-btn-wrap">
-            <button class="button button-icon icon ion-ios-paperplane footer-btn" type="submit"
+            <button class="button button-icon icon ion-android-send footer-btn" type="submit"
                 ng-disabled="!data.message || data.message === ''">
             </button>
           </div>

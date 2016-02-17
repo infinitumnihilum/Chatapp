@@ -1,6 +1,4 @@
 <ion-view view-title="Dashboard" >
-<ion-nav-bar class="bar-dark">
-</ion-nav-bar>
   <ion-content class="padding" >
   
     <h2>Welcome to DerpChat</h2>
@@ -9,20 +7,22 @@
 
     DerpChat is an anonymous chat application that allows you to express yourself to your homies and to future homies.
     </p>
-    <p>DerpChat is built on Ionic and AngularJS and communicates with an AWS webserver using node and the Socket.io library.  The ionic application can be found here:
-    <a class="item" href="#" onclick="window.open('https://github.com/infinitumnihilum/Chatapp', '_system', 'location=yes'); return false;">Github Repo </a> </p>
+    <p>DerpChat is built on Ionic and AngularJS and communicates with an AWS webserver using Node.js and the Socket.io library.  The mobile application's Github repository can be found here: 
+     </p>
+     <button ng-click="launch('https://github.com/infinitumnihilum/Chatapp')" ng-init="count=0" class="icon ion-social-github button button-dark button button-full"></button>
     <p> The Developers: </p>
     <p align="center"> John Davis </p>
     <div class="button-bar">
-        <button ng-click="count=count+1" ng-init="count=0" class="icon ion-social-linkedin button button-calm"></button>
-        <button ng-click="count=count+1" ng-init="count=0" class="icon ion-social-github button button-balanced"></button>
-        <button ng-click="count=count+1" ng-init="count=0" class="icon ion-android-mail button button-assertive"></button>
+        <button ng-click="launch('https://www.linkedin.com/in/johndavisjr1')" ng-init="count=0" class="icon ion-social-linkedin button button-calm"></button>
+        <button ng-click="launch('https://github.com/infinitumnihilum')" ng-init="count=0" class="icon ion-social-github button button-balanced"></button>
+  <!--<button ng-click="count=count+1" ng-init="count=0" class="icon ion-android-mail button button-assertive"></button> !-->
       </div> <p></p>
     <p  align="center"> Joe Roddy </p>
     <div class="button-bar">
-        <button ng-click="count=count+1" ng-init="count=0" class="icon ion-social-linkedin button button-calm"></button>
-        <button ng-click="count=count+1" ng-init="count=0" class="icon ion-social-github button button-balanced"></button>
-        <button ng-click="count=count+1" ng-init="count=0" class="icon ion-android-mail button button-assertive"></button>
+        <button ng-click="launch('https://www.linkedin.com/in/joe-roddy-78722865')" ng-init="count=0" class="icon ion-social-linkedin button button-calm"></button>
+        <button ng-click="launch('https://github.com/JoeRoddy')" ng-init="count=0" class="icon ion-social-github button button-balanced"></button>
+  <!--    <button ng-click="launch(" ng-init="count=0" class="icon ion-android-mail button button-assertive"></button> 
+  !-->
       </div>
   </ion-content>
 </ion-view>

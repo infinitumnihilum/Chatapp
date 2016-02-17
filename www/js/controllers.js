@@ -1,6 +1,12 @@
 angular.module('chat.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function($scope) {
+$scope.launch = function(url) {
+    window.open(url, "_system", "location=yes");
+}
+
+
+})
 
 .controller('MysqlCtrl', function($scope) {})
 
