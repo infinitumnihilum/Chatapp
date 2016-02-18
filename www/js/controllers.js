@@ -9,10 +9,10 @@ angular.module('chat.controllers', [])
 
 .controller("CameraCtrl", function($scope, $cordovaCamera) {
     $scope.takePicture = function() {
-        var options = { 
-            quality : 75, 
-            destinationType : Camera.DestinationType.DATA_URL, 
-            sourceType : Camera.PictureSourceType.CAMERA, 
+        var options = {
+            quality : 75,
+            destinationType : Camera.DestinationType.DATA_URL,
+            sourceType : Camera.PictureSourceType.CAMERA,
             allowEdit : true,
             encodingType: Camera.EncodingType.JPEG,
             targetWidth: 300,
@@ -27,7 +27,7 @@ angular.module('chat.controllers', [])
             // An error occured. Show a message to the user
         });
     }
- 
+
 })
 
 .controller('OtherCtrl', function($scope,derpService,bullshitService,themeService) {
@@ -49,7 +49,10 @@ angular.module('chat.controllers', [])
   };
   $scope.themeList = [
     { text: "Classic", value: 1, col: "black"},
-    { text: "Neon", value: 2, col: "deeppink"}
+    { text: "Neon", value: 2, col: "deeppink"},
+    { text: "Christmas", value: 3, col: "red"},
+    { text: "Evening Sky", value: 4, col: "#751aff"},
+    { text: "Pumpkin", value: 5, col: "orange"}
   ];
   $scope.themeChoice = {
     theme : 1
@@ -61,7 +64,7 @@ angular.module('chat.controllers', [])
         var media = new Media(src, null, null, mediaStatusCallback);
           media.play();
     }
- 
+
     var mediaStatusCallback = function(status) {
         if(status == 1) {
             $ionicLoading.show({template: 'Loading...'});
@@ -84,13 +87,20 @@ angular.module('chat.controllers', [])
   var themeValue = themeService.getTheme();
   $scope.bgStyle={};
   $scope.customStyle={};
+  $scope.nameStyle={};
   $scope.customColor = function(){
     var textCo="black";
     var bgCo = "white";
+    var nameCo = "black";
     var themeVal = themeService.getTheme();
-    if(themeVal == 2){textCo="deeppink"; bgCo="black";}
+    if(themeVal == 2){textCo="deeppink"; bgCo="black"; nameCo="#00ccff";}
+    else if(themeVal == 3){textCo="red" ; bgCo="green"; nameCo=textCo;}
+    else if(themeVal == 4){textCo="white"; bgCo="#751aff"; nameCo="#ff4d88";}
+    else if(themeVal == 5){textCo="orange"; bgCo="black"; nameCo="white";}
     $scope.customStyle.style = {"color": textCo};
-    $scope.bgStyle.style = {"background-color": bgCo }
+    $scope.bgStyle.style = {"background-color": bgCo };
+    $scope.nameStyle.style = {"color": nameCo };
+
   };
   $scope.customColor();
 

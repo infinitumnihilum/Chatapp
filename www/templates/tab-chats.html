@@ -8,8 +8,8 @@
       <span ng-show="!message.notification">
 
 
-        <p class="username" ng-style="customStyle.style" ng-show="messageIsMine(message.username)">{{message.username}}</p>
-        <p class="username" ng-style="customStyle.style" ng-show="!messageIsMine(message.username)">{{message.username}}</p>
+        <p class="username" ng-style="nameStyle.style" ng-show="messageIsMine(message.username)">{{message.username}}</p>
+        <p class="username" ng-style="nameStyle.style" ng-show="!messageIsMine(message.username)">{{message.username}}</p>
 
         <div ng-class='getBubbleClass(message.username)'>
           <p class="messagetext" ng-style="customStyle.style" ng-bind="message.message"></p>
