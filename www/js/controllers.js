@@ -9,7 +9,7 @@ angular.module('chat.controllers', [])
 
 .controller('MysqlCtrl', function($scope) {})
 
-.controller('OtherCtrl', function($scope,derpService,bullshitService) {
+.controller('OtherCtrl', function($scope,derpService,bullshitService,themeService) {
    $scope.derpEnablerChange = function() {
       console.log('Derp Enabler Change', $scope.derpEnabler.checked);
       derpService.setDerping($scope.derpEnabler.checked);
@@ -21,6 +21,18 @@ angular.module('chat.controllers', [])
       bullshitService.setBullshit($scope.bullshitEnabler.checked);
     };
     $scope.bullshitEnabler = { checked: false };
+
+
+  $scope.themeChanger = function(theme){
+      themeService.setTheme(theme);
+  };
+  $scope.themeList = [
+    { text: "Classic", value: 1, col: "black"},
+    { text: "Neon", value: 2, col: "deeppink"}
+  ];
+  $scope.themeChoice = {
+    theme : 1
+  };
 })
 
 .controller('RedditCtrl', function($scope, $http){
@@ -29,7 +41,7 @@ angular.module('chat.controllers', [])
 })
 
 
-.controller('ChatCtrl', function($scope, $stateParams, $ionicPopup, $timeout, Socket, Chat,derpService,bullshitService) {
+.controller('ChatCtrl', function($scope, $stateParams, $ionicPopup, $timeout, Socket, Chat,derpService,bullshitService,themeService) {
 
   $scope.data = {};
   $scope.data.message = "";
@@ -37,6 +49,20 @@ angular.module('chat.controllers', [])
   var typing = false;
   var lastTypingTime;
   var TYPING_TIMER_LENGTH = 250;
+  var themeValue = themeService.getTheme();
+  $scope.bgStyle={};
+  $scope.customStyle={};
+  $scope.customColor = function(){
+    var textCo="black";
+    var bgCo = "white";
+    var themeVal = themeService.getTheme();
+    if(themeVal == 2){textCo="deeppink"; bgCo="black";}
+    $scope.customStyle.style = {"color": textCo};
+    $scope.bgStyle.style = {"background-color": bgCo }
+  };
+  $scope.customColor();
+
+
 
   Socket.on('connect',function(){
 

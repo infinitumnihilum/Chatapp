@@ -49,6 +49,17 @@ angular.module('chat.services', [])
       }
     }
 })
+  .factory('themeService',function(){
+    var theme=1;
+    return {
+      getTheme: function () {
+        return theme;
+      },
+      setTheme: function (x) {
+        theme = x;
+      }
+    }
+  })
 .factory('bullshitService',function(){
     var bullshit=false;
     var bullCount=0;
