@@ -49,12 +49,12 @@ angular.module('chat', ['ionic', 'ec2-54-174-1-185.compute-1.amazonaws.com:3000'
       }
     }
   })
-    .state('tab.mysql', {
-    url: '/mysql',
+    .state('tab.camera', {
+    url: '/camera',
     views: {
-      'tab-Mysql': {
-        templateUrl: 'templates/tab-Mysql.html',
-        controller: 'MySqlCtrl'
+      'tab-camera': {
+        templateUrl: 'templates/tab-camera.html',
+        controller: 'CameraCtrl'
       }
     }
   })
