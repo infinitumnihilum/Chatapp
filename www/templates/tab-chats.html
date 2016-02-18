@@ -1,12 +1,12 @@
 <ion-view view-title="Chat">
 
   <ion-content class="padding">
-    
+
   <section class="chats">
 
     <span ng-repeat="message in messages">
       <span ng-show="!message.notification">
-       
+
         <p class="username" ng-show="messageIsMine(message.username)">{{message.username}}</p>
         <p class="username" ng-show="!messageIsMine(message.username)">{{message.username}}</p>
 

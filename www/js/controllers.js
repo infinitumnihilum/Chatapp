@@ -24,7 +24,7 @@ angular.module('chat.controllers', [])
 })
 
 .controller('RedditCtrl', function($scope, $http){
-  
+
 
 })
 
@@ -70,7 +70,7 @@ angular.module('chat.controllers', [])
   if($stateParams.username){
     $scope.data.message = "@" + $stateParams.username;
     document.getElementById("msg-input").focus();
-  } 
+  }
 
   var sendUpdateTyping = function(){
     if (!typing) {
@@ -123,7 +123,7 @@ angular.module('chat.controllers', [])
           msg+=wordToAdd+" ";
       }
     }
-    else if (derpService.isDerping()==true){      
+    else if (derpService.isDerping()==true){
       msg="";
       for(var x=0;x<msgWords.length;x++){
           var ran = Math.floor(Math.random()*derpWords.length);
@@ -154,6 +154,6 @@ angular.module('chat.controllers', [])
 })
 
 .controller('AccountCtrl', function($scope, Chat) {
-  $scope.username = Chat.getUsername();  
+  $scope.username = Chat.getUsername();
   $scope.chatnum = Chat.getChatnum();
-}, true);
+}, true);s
