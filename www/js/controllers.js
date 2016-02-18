@@ -105,10 +105,25 @@ angular.module('chat.controllers', [])
   };
 
   $scope.sendMessage = function(msg){
-    var derpStatus = derpService.isDerping;
-    if (derpService.isDerping()==true){
-      var derpWords = ["herp","derp","herpa","derpa","derping","herp-derp","herpatitus","derpatrator","derparrhea","HerpeBirthday!"];
-      var msgWords = msg.split(" ");
+    var derpWords = ["herp","derp","herpa","derpa","derping","herp-derp","herpatitus","derpatrator","derparrhea","HerpeBirthday!"];
+    var bsWords = ["synergy","agile","framework","test-driven development","minimum viable product","scrum","LAMP","big data","robust","top-down design","UML","waterfall","service-oriented architecture"];
+    var msgWords = msg.split(" ");
+    if(derpService.isDerping()&&bullshitService.isBullshit()){
+        msg="";
+        for(var x=0;x<msgWords.length;x++){
+          console.log("random element index: "+ran);
+          if(x%2==0){
+            var ran = Math.floor(Math.random()*derpWords.length);
+            var wordToAdd = derpWords[ran];
+          }
+          else{
+            var ran = Math.floor(Math.random()*bsWords.length);
+            var wordToAdd = bsWords[ran];
+          }
+          msg+=wordToAdd+" ";
+      }
+    }
+    else if (derpService.isDerping()==true){      
       msg="";
       for(var x=0;x<msgWords.length;x++){
           var ran = Math.floor(Math.random()*derpWords.length);
@@ -118,13 +133,16 @@ angular.module('chat.controllers', [])
       }
     }
     else if(bullshitService.isBullshit()==true){
-      msg="bullshit.";
+      msg="";
+      for(var x=0;x<msgWords.length;x++){
+          var ran = Math.floor(Math.random()*bsWords.length);
+          var wordToAdd = bsWords[ran];
+          msg+=wordToAdd+" ";
+      }
     }
     Chat.sendMessage(msg);
     $scope.data.message = "";
-    
   };
-
 })
 
 .controller('PeopleCtrl', function($scope, Users) {
@@ -134,8 +152,6 @@ angular.module('chat.controllers', [])
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatId);
 })
-
-
 
 .controller('AccountCtrl', function($scope, Chat) {
   $scope.username = Chat.getUsername();  
