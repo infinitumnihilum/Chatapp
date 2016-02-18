@@ -33,23 +33,37 @@ angular.module('chat.services', [])
 
 .factory('derpService',function(){
     var derping=false;
+    var derpCount=0;
     return{
       isDerping: function(){
         return derping;
       },
       setDerping: function(bool){
         derping=bool;
+      },
+      addDerp: function(){
+        derpCount++;
+      },
+      getDerpCount: function(){
+        return derpCount;
       }
     }
 })
 .factory('bullshitService',function(){
     var bullshit=false;
+    var bullCount=0;
     return{
       isBullshit: function(){
         return bullshit;
       },
       setBullshit: function(bool){
         bullshit=bool;
+      },
+      addBull: function(){
+        bullCount++;
+      },
+      getBullCount: function(){
+        return bullCount;
       }
     }
 })
@@ -59,7 +73,7 @@ angular.module('chat.services', [])
   var username;
   var users = {};
   users.numUsers = 0;
-
+  var userMessageCount = 0;
   var messages = [];
   var TYPING_MSG = '. . .';
 
@@ -148,6 +162,13 @@ angular.module('chat.services', [])
     },
     scrollBottom: function(){
       scrollBottom();
+    },
+    incrementMessages: function(){
+      userMessageCount++;
+    },
+    getUserMessageCount: function(){
+      return userMessageCount;
     }
   };
+
 });

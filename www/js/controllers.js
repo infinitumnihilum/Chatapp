@@ -115,12 +115,15 @@ angular.module('chat.controllers', [])
           if(x%2==0){
             var ran = Math.floor(Math.random()*derpWords.length);
             var wordToAdd = derpWords[ran];
+            derpService.addDerp();
           }
           else{
             var ran = Math.floor(Math.random()*bsWords.length);
             var wordToAdd = bsWords[ran];
+            bullshitService.addBull();
           }
           msg+=wordToAdd+" ";
+
       }
     }
     else if (derpService.isDerping()==true){
@@ -130,6 +133,7 @@ angular.module('chat.controllers', [])
           console.log("random element index: "+ran);
           var wordToAdd = derpWords[ran];
           msg+=wordToAdd+" ";
+          derpService.addDerp();
       }
     }
     else if(bullshitService.isBullshit()==true){
@@ -138,10 +142,12 @@ angular.module('chat.controllers', [])
           var ran = Math.floor(Math.random()*bsWords.length);
           var wordToAdd = bsWords[ran];
           msg+=wordToAdd+" ";
+          bullshitService.addBull();
       }
     }
     Chat.sendMessage(msg);
     $scope.data.message = "";
+    Chat.incrementMessages();
   };
 })
 
@@ -153,7 +159,9 @@ angular.module('chat.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('AccountCtrl', function($scope, Chat) {
+.controller('AccountCtrl', function($scope,Chat,derpService,bullshitService) {
   $scope.username = Chat.getUsername();
-  $scope.chatnum = Chat.getChatnum();
-}, true);s
+  $scope.chatnum = Chat.getUserMessageCount();
+  $scope.derpnum = derpService.getDerpCount();
+  $scope.bullnum = bullshitService.getBullCount();
+});
