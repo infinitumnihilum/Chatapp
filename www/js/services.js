@@ -12,6 +12,9 @@ angular.module('chat.services', [])
     var usernames = [];
     usernames.numUsers = 0;
 
+    var userImages = [ 'img/adam.jpg', 'img/ben.png', 'img/brock.jpeg' , 'img/max.png' , 'img/mike.png' ,
+       'img/perry.png', 'img/tariq.jpeg'];
+
     return {
       getUsers: function(){
         return usernames;
@@ -27,6 +30,9 @@ angular.module('chat.services', [])
       },
       setNumUsers: function(data){
         usernames.numUsers = data.numUsers;
+      },
+      getRanImage: function () {
+        return userImages[Math.floor(Math.random()*userImages.length)];
       }
   };
 })

@@ -7,6 +7,14 @@ angular.module('chat.controllers', [])
   }
 })
 
+  .controller('UserCtrl',function($scope,Users) {
+      $scope.ranIMG = '../img/john.jpg';
+      $scope.getIMG = function(){
+        $scope.ranIMG = Users.getRanImage();
+      }
+      $scope.ranIMG = $scope.getIMG();
+  })
+
 .controller("CameraCtrl", function($scope, $cordovaCamera) {
     $scope.takePicture = function() {
         var options = {
