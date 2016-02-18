@@ -9,12 +9,18 @@ angular.module('chat.controllers', [])
 
 .controller('MysqlCtrl', function($scope) {})
 
-.controller('OtherCtrl', function($scope,derpService) {
+.controller('OtherCtrl', function($scope,derpService,bullshitService) {
    $scope.derpEnablerChange = function() {
       console.log('Derp Enabler Change', $scope.derpEnabler.checked);
       derpService.setDerping($scope.derpEnabler.checked);
     };
     $scope.derpEnabler = { checked: false };
+
+    $scope.bullshitEnablerChange = function() {
+      console.log('Bullshit Enabler Change', $scope.bullshitEnabler.checked);
+      bullshitService.setBullshit($scope.bullshitEnabler.checked);
+    };
+    $scope.bullshitEnabler = { checked: false };
 })
 
 .controller('RedditCtrl', function($scope, $http){
@@ -23,7 +29,7 @@ angular.module('chat.controllers', [])
 })
 
 
-.controller('ChatCtrl', function($scope, $stateParams, $ionicPopup, $timeout, Socket, Chat,derpService) {
+.controller('ChatCtrl', function($scope, $stateParams, $ionicPopup, $timeout, Socket, Chat,derpService,bullshitService) {
 
   $scope.data = {};
   $scope.data.message = "";
@@ -111,7 +117,9 @@ angular.module('chat.controllers', [])
           msg+=wordToAdd+" ";
       }
     }
-
+    else if(bullshitService.isBullshit()==true){
+      msg="bullshit.";
+    }
     Chat.sendMessage(msg);
     $scope.data.message = "";
     
