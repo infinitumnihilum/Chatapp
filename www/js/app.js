@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('chat', ['ionic', 'ec2-54-174-1-185.compute-1.amazonaws.com:3000','chat.controllers', 'chat.services'])
+angular.module('chat', ['ionic', 'ec2-54-174-1-185.compute-1.amazonaws.com:3000','chat.controllers', 'chat.services','ngCordova'])
 //angular.module('chat', ['ionic', 'btford.socket-io', 'chat.controllers', 'chat.services'])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -54,7 +54,7 @@ angular.module('chat', ['ionic', 'ec2-54-174-1-185.compute-1.amazonaws.com:3000'
     views: {
       'tab-Mysql': {
         templateUrl: 'templates/tab-Mysql.html',
-        controller: 'MysqlCtrl'
+        controller: 'MySqlCtrl'
       }
     }
   })

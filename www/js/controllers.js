@@ -7,7 +7,11 @@ angular.module('chat.controllers', [])
   }
 })
 
-.controller('MysqlCtrl', function($scope) {})
+.controller("MysqlCtrl", function($scope) {
+ 
+    
+ 
+})
 
 .controller('OtherCtrl', function($scope,derpService,bullshitService) {
    $scope.derpEnablerChange = function() {
@@ -23,8 +27,19 @@ angular.module('chat.controllers', [])
     $scope.bullshitEnabler = { checked: false };
 })
 
-.controller('RedditCtrl', function($scope, $http){
-
+.controller('RedditCtrl', function($scope, $cordovaMedia, $ionicLoading){
+    $scope.play = function(src) {
+        var media = new Media(src, null, null, mediaStatusCallback);
+          media.play();
+    }
+ 
+    var mediaStatusCallback = function(status) {
+        if(status == 1) {
+            $ionicLoading.show({template: 'Loading...'});
+        } else {
+            $ionicLoading.hide();
+        }
+    }
 
 })
 
