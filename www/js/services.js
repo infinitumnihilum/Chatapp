@@ -87,6 +87,7 @@ angular.module('chat.services', [])
   var userMessageCount = 0;
   var messages = [];
   var TYPING_MSG = '. . .';
+  var mySound = new Audio('/android_asset/www/sound/DerpSoundEffect.mp3');
 
   var Notification = function(username,message){
     var notification          = {};
@@ -102,6 +103,7 @@ angular.module('chat.services', [])
 
   Socket.on('new message', function(msg){
       addMessage(msg);
+      mySound.play();
   });
 
   Socket.on('typing', function (data) {
