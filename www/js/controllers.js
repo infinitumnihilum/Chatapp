@@ -105,7 +105,7 @@ angular.module('chat.controllers', [])
       var msgWords = msg.split(" ");
       msg="";
       for(var x=0;x<msgWords.length;x++){
-          var ran = Math.floor(Math.random()*9);
+          var ran = Math.floor(Math.random()*derpWords.length);
           console.log("random element index: "+ran);
           var wordToAdd = derpWords[ran];
           msg+=wordToAdd+" ";
@@ -130,5 +130,6 @@ angular.module('chat.controllers', [])
 
 
 .controller('AccountCtrl', function($scope, Chat) {
-  $scope.username = Chat.getUsername();  
+  $scope.username = Chat.getUsername(); 
+  $scope.chatnum = Chat.getChatnum();
 }, true);

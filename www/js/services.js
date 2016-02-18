@@ -48,6 +48,7 @@ angular.module('chat.services', [])
 
   var username;
   var users = {};
+  var chatnum = 0;
   users.numUsers = 0;
 
   var messages = [];
@@ -122,6 +123,9 @@ angular.module('chat.services', [])
     getUsername: function(){
       return username;
     },
+    getChatnum: function(){
+      return chatnum;
+    },
     setUsername: function(usr){
       username = usr;
     },
@@ -135,6 +139,7 @@ angular.module('chat.services', [])
       });
       scrollBottom();
       Socket.emit('new message', msg);
+      chatnum++;
     },
     scrollBottom: function(){
       scrollBottom();
