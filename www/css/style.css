@@ -51,6 +51,9 @@ body {
   padding-right: 15px;
   text-align: right;
 }
+.notification {
+  font-weight: 700;
+}
 
 
 
