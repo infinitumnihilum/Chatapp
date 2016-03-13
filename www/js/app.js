@@ -78,6 +78,7 @@ angular.module('chat', ['ionic', 'ec2-54-174-1-185.compute-1.amazonaws.com:3000'
   })
 
   .state('tab.chats', {
+    cache: false,
     url: '/chats/{username}',
     params: { username: { value: null } },
     views: {

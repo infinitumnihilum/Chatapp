@@ -92,7 +92,6 @@ angular.module('chat.controllers', [])
   var typing = false;
   var lastTypingTime;
   var TYPING_TIMER_LENGTH = 250;
-  var themeValue = themeService.getTheme();
   $scope.bgStyle={};
   $scope.customStyle={};
   $scope.nameStyle={};
