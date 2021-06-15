@@ -23,8 +23,8 @@ angular.module('chat.controllers', [])
             sourceType : Camera.PictureSourceType.CAMERA,
             allowEdit : true,
             encodingType: Camera.EncodingType.JPEG,
-            targetWidth: 300,
-            targetHeight: 300,
+            targetWidth: 500,
+            targetHeight: 500,
             popoverOptions: CameraPopoverOptions,
             saveToPhotoAlbum: false
         };
